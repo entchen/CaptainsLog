@@ -50,5 +50,6 @@
   <ItemGroup>
     <Compile Include="Notebook.cs" />
     <Compile Include="NotebookController.cs" />
+    <Compile Include="NotebookUtil.cs" />
   </ItemGroup>
 </Project>
