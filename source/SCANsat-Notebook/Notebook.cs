@@ -13,6 +13,7 @@ namespace SCANsatNotebook
 	{
 		public Notebook ()
 		{
+			NotebookUtil.NotebookLog ("Notebook created");
 		}
 	}
 }

@@ -9,8 +9,14 @@ namespace SCANsatNotebook
 		{
 		}
 
+		public override void OnLoad(ConfigNode node)
+		{
+			NotebookUtil.NotebookLog ("OnLoad called");
+		}
+
 		public override void OnSave(ConfigNode node)
 		{
+			NotebookUtil.NotebookLog ("OnSave called");
 		}
 	}
 }
