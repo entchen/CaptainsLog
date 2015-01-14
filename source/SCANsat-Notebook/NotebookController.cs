@@ -3,7 +3,7 @@
 namespace SCANsatNotebook
 {
 	[KSPScenario(ScenarioCreationOptions.AddToAllGames | ScenarioCreationOptions.AddToExistingGames, GameScenes.FLIGHT, GameScenes.SPACECENTER, GameScenes.TRACKSTATION)]
-	public class NotebookController
+	public class NotebookController : ScenarioModule
 	{
 		public NotebookController ()
 		{
