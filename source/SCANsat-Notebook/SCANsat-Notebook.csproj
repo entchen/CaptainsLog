@@ -47,4 +47,7 @@
       <HintPath>..\..\..\..\..\SteamLibrary\SteamApps\common\Kerbal Space Program\GameData\SCANsat\Plugins\SCANsat.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Notebook.cs" />
+  </ItemGroup>
 </Project>
