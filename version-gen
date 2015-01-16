@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+
+$VERSION_MAJOR = 0;
+$VERSION_MINOR = 5;
+$VERSION_PATCH = 0;
+
+$VERSION_BUILD = $ENV{'BUILD_NUMBER'};
+
+if (!(defined($VERSION_BUILD) && $VERSION_BUILD ne "")) {
+    $VERSION_BUILD = 0;
+}
+
+my $ASSEMBLY_TEMPLATE = "source/SCANsat-Notebook/Properties/AssemblyInfo.in";
+my $ASSEMBLY_FILE     = "source/SCANsat-Notebook/Properties/AssemblyInfo.cs";
+
+# Write our AssemblyInfo
+
+open(my $template_fh, '<', $ASSEMBLY_TEMPLATE);
+open(my $assembly_fh, '>', $ASSEMBLY_FILE);
+
+while (<$template_fh>) {
+    s{\@VERSION_MAJOR\@}{$VERSION_MAJOR};
+    s{\@VERSION_MINOR\@}{$VERSION_MINOR};
+    s{\@VERSION_PATCH\@}{$VERSION_PATCH};
+    s{\@VERSION_BUILD\@}{$VERSION_BUILD};
+    print {$assembly_fh} $_;
+}
+
+close($template_fh);
+close($assembly_fh);
