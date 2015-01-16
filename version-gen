@@ -13,6 +13,9 @@ if (!(defined($VERSION_BUILD) && $VERSION_BUILD ne "")) {
 my $ASSEMBLY_TEMPLATE = "source/SCANsat-Notebook/Properties/AssemblyInfo.in";
 my $ASSEMBLY_FILE     = "source/SCANsat-Notebook/Properties/AssemblyInfo.cs";
 
+my $AVC_TEMPLATE = "SCANsat-Notebook.version.in";
+my $AVC_FILE     = "SCANsat-Notebook.version";
+
 my $VERSION_SCRIPT_FILE = "versions.sh";
 
 # Write our AssemblyInfo
@@ -30,6 +33,22 @@ while (<$template_fh>) {
 
 close($template_fh);
 close($assembly_fh);
+
+# Write out AVC file
+
+open(my $avc_template_fh, '<', $AVC_TEMPLATE);
+open(my $avc_file_fh,     '>', $AVC_FILE);
+
+while (<$avc_template_fh>) {
+    s{\@VERSION_MAJOR\@}{$VERSION_MAJOR};
+    s{\@VERSION_MINOR\@}{$VERSION_MINOR};
+    s{\@VERSION_PATCH\@}{$VERSION_PATCH};
+    s{\@VERSION_BUILD\@}{$VERSION_BUILD};
+    print {$avc_file_fh} $_;
+}
+
+close($avc_template_fh);
+close($avc_file_fh);
 
 # Write version script for jenkins
 open(my $version_script_fh, '>', $VERSION_SCRIPT_FILE);

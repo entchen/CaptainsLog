@@ -1,0 +1,18 @@
+{
+    "NAME": "Crew Manifest",
+    "URL": "https://raw.githubusercontent.com/entchen/SCANsat-Notebook/master/SCANsat-Notebook.version",
+    "VERSION": {
+        "MAJOR": "HEAD"
+    },
+    "VERSION":{
+        "MAJOR": 0,
+        "MINOR": 5,
+        "PATCH": 0,
+        "BUILD": 0
+    },
+    "KSP_VERSION_MIN": {
+        "MAJOR": 0,
+        "MINOR": 90,
+        "PATCH": 0
+    }
+}
