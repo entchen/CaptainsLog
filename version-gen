@@ -13,6 +13,8 @@ if (!(defined($VERSION_BUILD) && $VERSION_BUILD ne "")) {
 my $ASSEMBLY_TEMPLATE = "source/SCANsat-Notebook/Properties/AssemblyInfo.in";
 my $ASSEMBLY_FILE     = "source/SCANsat-Notebook/Properties/AssemblyInfo.cs";
 
+my $VERSION_SCRIPT_FILE = "versions.sh";
+
 # Write our AssemblyInfo
 
 open(my $template_fh, '<', $ASSEMBLY_TEMPLATE);
@@ -28,3 +30,12 @@ while (<$template_fh>) {
 
 close($template_fh);
 close($assembly_fh);
+
+# Write version script for jenkins
+open(my $version_script_fh, '>', $VERSION_SCRIPT_FILE);
+print ${version_script_fh} "export VERSION=${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}\n";
+print ${version_script_fh} "\n";
+print ${version_script_fh} "export VERSION_MAJOR=${VERSION_MAJOR}\n";
+print ${version_script_fh} "export VERSION_MINOR=${VERSION_MINOR}\n";
+print ${version_script_fh} "export VERSION_PATCH=${VERSION_PATCH}\n";
+close ($version_script_fh);
