@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 $VERSION_MAJOR = 0;
-$VERSION_MINOR = 5;
+$VERSION_MINOR = 0;
 $VERSION_PATCH = 0;
 
 $VERSION_BUILD = $ENV{'BUILD_NUMBER'};
@@ -10,6 +10,7 @@ if (!(defined($VERSION_BUILD) && $VERSION_BUILD ne "")) {
     $VERSION_BUILD = 0;
 }
 
+
 my $ASSEMBLY_TEMPLATE = "source/SCANsat-Notebook/Properties/AssemblyInfo.in";
 my $ASSEMBLY_FILE     = "source/SCANsat-Notebook/Properties/AssemblyInfo.cs";
 
@@ -17,6 +18,37 @@ my $AVC_TEMPLATE = "SCANsat-Notebook.version.in";
 my $AVC_FILE     = "SCANsat-Notebook.version";
 
 my $VERSION_SCRIPT_FILE = "versions.sh";
+
+# Read versions file to obtain info
+
+# Write version script for jenkins
+open(my $version_script_fh, '<', $VERSION_SCRIPT_FILE);
+# print ${version_script_fh} "export VERSION=${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}\n";
+# print ${version_script_fh} "\n";
+# print ${version_script_fh} "export VERSION_MAJOR=${VERSION_MAJOR}\n";
+# print ${version_script_fh} "export VERSION_MINOR=${VERSION_MINOR}\n";
+# print ${version_script_fh} "export VERSION_PATCH=${VERSION_PATCH}\n";
+while (<$version_script_fh>)
+{
+    chomp;
+    ($var, $value) = split(/=/);
+
+    if (defined($var) && defined($value))
+    {
+	$var   =~ s/^export //g;
+	$var   =~ s/^\s+|\s+$//g;
+	$value =~ s/^\s+|\s+$//g;
+
+	$VERSION_MAJOR = $value if ($var eq "VERSION_MAJOR");
+	$VERSION_MINOR = $value if ($var eq "VERSION_MINOR");
+	$VERSION_PATCH = $value if ($var eq "VERSION_PATCH");
+	print "'" . $var . "'\n";
+	print "'" . $value . "'\n";
+	# print "\n";
+    }
+}
+close ($version_script_fh);
+
 
 # Write our AssemblyInfo
 
@@ -50,11 +82,3 @@ while (<$avc_template_fh>) {
 close($avc_template_fh);
 close($avc_file_fh);
 
-# Write version script for jenkins
-open(my $version_script_fh, '>', $VERSION_SCRIPT_FILE);
-print ${version_script_fh} "export VERSION=${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}\n";
-print ${version_script_fh} "\n";
-print ${version_script_fh} "export VERSION_MAJOR=${VERSION_MAJOR}\n";
-print ${version_script_fh} "export VERSION_MINOR=${VERSION_MINOR}\n";
-print ${version_script_fh} "export VERSION_PATCH=${VERSION_PATCH}\n";
-close ($version_script_fh);
