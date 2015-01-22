@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SCANsat;
 using SCANsat.SCAN_Data;
 
@@ -7,8 +8,6 @@ namespace SCANsatNotebook
 	[KSPScenario(ScenarioCreationOptions.AddToAllGames | ScenarioCreationOptions.AddToExistingGames, GameScenes.FLIGHT, GameScenes.SPACECENTER, GameScenes.TRACKSTATION)]
 	public class NotebookController : ScenarioModule
 	{
-		internal string[] body_names = new string[] { "Kerbin", "Mun", "Minmus" };
-
 		public NotebookController ()
 		{
 		}
@@ -22,19 +21,24 @@ namespace SCANsatNotebook
 		{
 			NotebookUtil.NotebookLog ("OnSave called");
 
-			foreach (string body_name in body_names)
+			List<CelestialBody> bodies = FlightGlobals.Bodies;
+			if (bodies == null)
 			{
-				SaveBody (body_name);
+				NotebookUtil.NotebookLog ("No Celestial Bodies found...");
+			}
+			else
+			{
+				foreach (CelestialBody body in bodies)
+				{
+					NotebookUtil.NotebookLog ("  body - name: {0}", body.bodyName);
+					NotebookUtil.NotebookLog ("  body - {0}", body);
+					SaveBody (body);
+				}
 			}
 		}
 
-		internal void SaveBody(string name)
+		internal void SaveBody(CelestialBody body)
 		{
-			NotebookUtil.NotebookLog ("Checking {0}", name);
-
-			CelestialBody body = new CelestialBody ();
-
-			NotebookUtil.NotebookLog ("Created Celestial Body {0}", name);
 			if (body == null)
 			{
 				NotebookUtil.NotebookLog ("  -- no body for: {0}: '{1}'", new Object[] { name, body });
