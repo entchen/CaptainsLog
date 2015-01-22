@@ -19,10 +19,14 @@ using System.Runtime.InteropServices;
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
-[assembly: AssemblyVersion("0.5.0")]
-[assembly: AssemblyFileVersion("0.5.0")]
-// [assembly: AssemblyInformationalVersion ("v9rc4.1")]
-[assembly: KSPAssembly("SCANsat-Notebook", 0, 5)]
+//
+// http://www.danielfortunov.com/software/%24daniel_fortunovs_adventures_in_software_development/2009/03/03/assembly_versioning_in_net
+//
+[assembly: AssemblyVersion("0.1.0")]
+[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyInformationalVersion("0.1.0.0")]
+
+[assembly: KSPAssembly("SCANsat-Notebook", 0, 1)]
 [assembly: KSPAssemblyDependency("SCANsat", 0, 9)]
 
 
