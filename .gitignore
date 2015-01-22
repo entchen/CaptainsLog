@@ -184,6 +184,3 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
-
-# Version file
-versions.sh
