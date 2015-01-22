@@ -42,8 +42,8 @@ while (<$version_script_fh>)
 	$VERSION_MAJOR = $value if ($var eq "VERSION_MAJOR");
 	$VERSION_MINOR = $value if ($var eq "VERSION_MINOR");
 	$VERSION_PATCH = $value if ($var eq "VERSION_PATCH");
-	print "'" . $var . "'\n";
-	print "'" . $value . "'\n";
+	# print "'" . $var . "'\n";
+	# print "'" . $value . "'\n";
 	# print "\n";
     }
 }
