@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft;
+using Newtonsoft.Json.Linq;
 using SCANsat;
 using SCANsat.SCAN_Data;
 
@@ -37,6 +39,9 @@ namespace SCANsatNotebook
 
 		internal void SaveBody(CelestialBody body)
 		{
+			Boolean persist = false;
+			JObject j = new JObject ();
+
 			if (body == null)
 			{
 				NotebookUtil.NotebookLog ("  -- no body for: {0}: '{1}'", new Object[] { name, body });
@@ -78,6 +83,13 @@ namespace SCANsatNotebook
 						}
 					}
 				}
+			}
+
+			// TODO make this save-force switchable
+			persist = true;
+
+			if (persist)
+			{
 			}
 		}
 	}
