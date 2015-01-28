@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCANsat-Notebook", "SCANsat-Notebook\SCANsat-Notebook.csproj", "{B3595FAD-C1DC-45E2-9DEF-B081C53B43B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{D18F77C7-6B1F-45FD-9BC2-7A2C834A91DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +15,9 @@ Global
 		{B3595FAD-C1DC-45E2-9DEF-B081C53B43B9}.Debug|x86.Build.0 = Debug|x86
 		{B3595FAD-C1DC-45E2-9DEF-B081C53B43B9}.Release|x86.ActiveCfg = Release|x86
 		{B3595FAD-C1DC-45E2-9DEF-B081C53B43B9}.Release|x86.Build.0 = Release|x86
+		{D18F77C7-6B1F-45FD-9BC2-7A2C834A91DF}.Debug|x86.ActiveCfg = Debug|x86
+		{D18F77C7-6B1F-45FD-9BC2-7A2C834A91DF}.Debug|x86.Build.0 = Debug|x86
+		{D18F77C7-6B1F-45FD-9BC2-7A2C834A91DF}.Release|x86.ActiveCfg = Release|x86
+		{D18F77C7-6B1F-45FD-9BC2-7A2C834A91DF}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
