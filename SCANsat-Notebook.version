@@ -1,8 +1,11 @@
 {
-    "NAME": "Crew Manifest",
+    "NAME": "SCANsat Notebook",
     "URL": "https://raw.githubusercontent.com/entchen/SCANsat-Notebook/master/SCANsat-Notebook.version",
-    "VERSION": {
-        "MAJOR": "HEAD"
+    "DOWNLOAD": "https://github.com/entchen/SCANsat-Notebook/releases",
+    "GITHUB":{
+        "USERNAME":"entchen",
+        "REPOSITORY":"SCANsat-Notebook",
+        "ALLOW_PRE_RELEASE":false
     },
     "VERSION":{
         "MAJOR": 0,
@@ -10,7 +13,17 @@
         "PATCH": 0,
         "BUILD": 0
     },
+    "KSP_VERSION": {
+        "MAJOR": 0,
+        "MINOR": 90,
+        "PATCH": 0
+    }
     "KSP_VERSION_MIN": {
+        "MAJOR": 0,
+        "MINOR": 90,
+        "PATCH": 0
+    }
+    "KSP_VERSION_MAX": {
         "MAJOR": 0,
         "MINOR": 90,
         "PATCH": 0
