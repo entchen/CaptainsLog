@@ -27,6 +27,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyInformationalVersion("0.1.0.0")]
 
 [assembly: KSPAssembly("SCANsat-Notebook", 0, 1)]
-[assembly: KSPAssemblyDependency("SCANsat", 0, 9)]
+[assembly: KSPAssemblyDependency("SCANsat", 1, 0)]
 
 
