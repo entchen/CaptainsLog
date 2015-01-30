@@ -58,6 +58,11 @@ namespace SCANsatNotebook
 				else
 				{
 					node = new ConfigNode (body.name);
+
+					ConfigNode innerNode = new ConfigNode ();
+					innerNode.AddValue ("body", body.name);
+					node.AddNode (innerNode);
+
 					SCANanomaly[] anomalies = data.Anomalies;
 					if (anomalies == null)
 					{
@@ -70,17 +75,25 @@ namespace SCANsatNotebook
 						for (int i = 0; i < anomalies.Length; i++)
 						{
 							SCANanomaly anomaly = anomalies [i];
-							// internal bool known;
-							// internal bool detail;
-							// internal string name;
-							// internal double longitude;
-							// internal double latitude;
-							// internal PQSMod mod;
-							NotebookUtil.NotebookLog ("    name:   {0}", anomaly.Name);
-							NotebookUtil.NotebookLog ("    known:  {0}", anomaly.Known);
-							NotebookUtil.NotebookLog ("    detail: {0}", anomaly.Detail);
-							NotebookUtil.NotebookLog ("    lon:    {0}", anomaly.Longitude);
-							NotebookUtil.NotebookLog ("    lat:    {0}", anomaly.Latitude);
+
+							Boolean show = anomaly.Known;
+							// TODO this is a flag dependent on debug level...
+							show = true;
+
+							if (show)
+							{
+								ConfigNode anomalyNode = new ConfigNode ();
+								anomalyNode.AddValue ("name", anomaly.Name);
+								anomalyNode.AddValue ("known", anomaly.Known.ToString());
+								anomalyNode.AddValue ("detail", anomaly.Detail.ToString());
+								anomalyNode.AddValue ("lon", anomaly.Longitude.ToString());
+								anomalyNode.AddValue ("lat", anomaly.Latitude.ToString());
+
+								innerNode.AddNode (anomalyNode);
+
+								// We have something to show, let's save it...
+								persist = true;
+							}
 						}
 					}
 				}
