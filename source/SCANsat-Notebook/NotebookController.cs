@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using SCANsat;
 using SCANsat.SCAN_Data;
+using KSP.IO;
+using File = KSP.IO.File;
 
 namespace SCANsatNotebook
 {
@@ -38,6 +40,7 @@ namespace SCANsatNotebook
 		internal void SaveBody(CelestialBody body)
 		{
 			Boolean persist = false;
+			ConfigNode node = null;
 
 			if (body == null)
 			{
@@ -54,6 +57,7 @@ namespace SCANsatNotebook
 				}
 				else
 				{
+					node = new ConfigNode (body.name);
 					SCANanomaly[] anomalies = data.Anomalies;
 					if (anomalies == null)
 					{
@@ -87,7 +91,27 @@ namespace SCANsatNotebook
 
 			if (persist)
 			{
+				if (node != null)
+				{
+					// IOUtils.
+					string saveFolder = GetRootPath() + "/Saves/" + HighLogic.SaveFolder + "/";
+					node.Save (saveFolder + "/" + "Discoveries-" + node.name + ".cfg");
+				}
 			}
+		}
+
+		internal static String GetRootPath()
+		{
+			// TODO is-mock flag somewhere here...
+			String path = KSPUtil.ApplicationRootPath;
+
+			path = path.Replace("\\", "/");
+			if (path.EndsWith ("/"))
+			{
+				path = path.Substring (0, path.Length - 1);
+			}
+
+			return path;
 		}
 	}
 }
