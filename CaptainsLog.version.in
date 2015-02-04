@@ -1,10 +1,10 @@
 {
-    "NAME": "SCANsat Notebook",
-    "URL": "https://raw.githubusercontent.com/entchen/SCANsat-Notebook/master/SCANsat-Notebook.version",
-    "DOWNLOAD": "https://github.com/entchen/SCANsat-Notebook/releases",
+    "NAME": "Captain's Log",
+    "URL": "https://raw.githubusercontent.com/entchen/CaptainsLog/master/CaptainsLog.version",
+    "DOWNLOAD": "https://github.com/entchen/CaptainsLog/releases",
     "GITHUB":{
         "USERNAME":"entchen",
-        "REPOSITORY":"SCANsat-Notebook",
+        "REPOSITORY":"CaptainsLog",
         "ALLOW_PRE_RELEASE":false
     },
     "VERSION":{
