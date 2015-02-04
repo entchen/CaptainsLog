@@ -11,11 +11,11 @@ if (!(defined($VERSION_BUILD) && $VERSION_BUILD ne "")) {
 }
 
 
-my $ASSEMBLY_TEMPLATE = "source/SCANsat-Notebook/Properties/AssemblyInfo.in";
-my $ASSEMBLY_FILE     = "source/SCANsat-Notebook/Properties/AssemblyInfo.cs";
+my $ASSEMBLY_TEMPLATE = "source/CaptainsLog/Properties/AssemblyInfo.in";
+my $ASSEMBLY_FILE     = "source/CaptainsLog/Properties/AssemblyInfo.cs";
 
-my $AVC_TEMPLATE = "SCANsat-Notebook.version.in";
-my $AVC_FILE     = "SCANsat-Notebook.version";
+my $AVC_TEMPLATE = "CaptainsLog.version.in";
+my $AVC_FILE     = "CaptainsLog.version";
 
 my $VERSION_SCRIPT_FILE = "versions.sh";
 
